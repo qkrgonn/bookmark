@@ -3,6 +3,9 @@ from .models import Bookmark
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
+from django.shortcuts import render
+
+
 
 class BookmarkListView(ListView):
     model = Bookmark
@@ -26,4 +29,5 @@ class BookmarkDeleteView(DeleteView):
     model = Bookmark
     success_url = reverse_lazy('list')
 
-
+def home(request):
+    return render(request, 'base.html')
